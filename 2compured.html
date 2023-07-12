@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>computedの使い方</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <div id="app">
+        <p>{{ counter }}</p>
+        <button @click="counter += 1">+1</button>
+        <p>{{ counter > 3 ? '3より上' : '3以下' }}</p>
+
+        <p>{{ counter }}</p>
+        <button @click="counter += 1">+1</button>
+        <p>{{ lessThanThreeComputed }}</p>
+
+     
+
+        <p>{{ counter }}</p>
+        <button @click="counter += 1">+1</button>
+        <p>{{ lessThanThreeMethod() }}</p>
+    </div>
+   
+
+</body>
+
+<script>
+    new Vue({
+	    el: '#app',
+        data: {
+            counter: 0
+        },
+        computed: {
+            lessThanThreeComputed: function() {
+                return this.counter > 3 ? '3より上' : '3以下ｺﾝﾋﾟｭｰﾃｨｯﾄﾞ'
+            }
+        },
+
+    
+
+        methods: {
+            lessThanThreeMethod: function() {
+                return this.counter > 3 ? '3より上' : '3以下ﾒｿｯﾄﾞ'
+            }
+        },
+
+
+        watch:  {
+            counter: function() {
+                var vm = this;
+                setTimeout(function(){
+                    vm.counter = 0
+                }, 3000)
+            }
+        }
+    })
+</script>
+</html>

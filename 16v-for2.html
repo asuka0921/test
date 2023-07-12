@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>v-for</title>
+    </head>
+    <!-- v-for は、リスト表示させる時に使える　-->
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+        <div id="app">
+          <ul>
+            <li v-for="(fruit, index) in fruits"></liv-for>({{index}}){{fruit}}</li> 
+          </ul>
+          <ul>
+            <li v-for="value in object">{{value}}</li>
+          </ul>
+        </div>
+    </body>
+
+    <script>
+        new Vue({
+	        el: '#app',
+            data: {
+		        fruits: ['りんご', 'バナナ', 'ぶどう'],
+                object: {
+    	            firstName: '太郎',
+                    lastName: '田中',
+                    age: 21
+                }
+            }
+        })
+    </script>
+</html>
+
+<!--
+    ☆左側　in　右側
+      右側　・・・　レンダリングさせたい配列やオブジェクトなどを書く
+      左側　・・・　各要素にアクセスするための名前、値、変数のようなものを書く
+
+      左側　→　第２引数をとることができる
+-->

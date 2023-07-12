@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-show</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <div id="app">
+    <button @click="ok = !ok">ボタン</button>
+        <p v-if="ok">If</p>
+        <p v-show="ok">Show</p>
+    </div>
+</body>
+
+<script>
+    new Vue({
+	    el: '#app',
+        data: {
+           ok: true
+        }
+    })
+</script>
+</html>
+
+<!--
+    v-if、v-show、どちらも同じようだけど、
+    if　は、要素ごと消し去る
+    show　は、CSSベースでdisplayをnoneにすることによって消し去る
+    
+    →　とても頻繁に切り替える必要がある場合  ・・・  v-show
+    　最初の条件が実行時あまり変わらない場合　・・・　v-if
+-->

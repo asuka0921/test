@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-else-if</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    
+    <div id="app">
+        <p v-if="ok">OK!</p>
+        <p v-else-if="maybeOk">maybe OK!</p> 
+        <p v-else>Not OK...</p>
+    </div>
+
+</body>
+
+    <!-- v-ifでさらに新しい条件を追加したいときに使う
+        
+        ok = false
+        maybe ＝ true
+        だった場合、maybeokが表示される
+        maybe = false　だった場合、notokが表示される
+        ok=true だった場合、OKが表示される
+
+        v-if
+        v-else-if
+        v-else
+        3つ使うとしたらこの順番に使わないと適応されないので注意
+    
+    -->
+
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            ok: true,
+            maybeOk: true
+            //ok: false　maybeOk:true　 →　maybeOK
+            //ok: false  maybeOk:false　→　NotOK
+            //ok: true   maybeOk:false　→　OK!
+            //ok: true   maybeOk:true 　→　OK!
+        }
+    })
+</script>
+</html>

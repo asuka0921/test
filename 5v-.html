@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-html、bindの使い方</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <div v-html="html"></div>
+    <a v-bind:href="url">Google</a>
+    <a :[attribute]="url">Google</a>
+    <a :href="urlTwitter" :id="number">Twitter</a>
+    <a v-bind="{href: urlTwitter, id: number}">Twitter</a>
+    <a v-bind="twitterObject">Twitter</a>
+    <a v-bind="twitterObject">Twitter</a>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            html: '<h1>h1です</h1>',
+            url: 'https://google.com',
+            urlTwitter: 'https://twitter.com',
+            number: 31,
+            attribute: 'href',
+
+            twitterObject: {
+                href: 'https://twitter.com',
+                id: 31
+            }
+        
+        }
+    })
+</script>
+
+</html>

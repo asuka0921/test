@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-else</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    
+    <div id="app">
+        <p v-if="ok">OK!</p>
+        <!-- <p>Not OK...</p> このままだと両方表示されちゃう 
+            　↓ifがfalseだった時のみelseが適応されるようになる-->
+        <p v-else>Not OK</p>
+        <!-- v-elseは、v-ifまたはv-else-ifの真下にこないと適応されないので注意
+            間に何か挟むとできなくなる！　--->
+    </div>
+
+</body>
+
+
+
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            ok: true,
+            //ok: false　true=ok false=not ok　になる
+        }
+    })
+</script>
+</html>

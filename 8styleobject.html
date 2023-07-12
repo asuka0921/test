@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>styleobject</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    
+    <div id="app">
+        <h1 :style="styleObject">Helloオブジェクトをデータに書くことができる</h1>
+        <h1 :style="[styleObject, baseStyles]">Hello配列構文</h1>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            styleObject: {
+                color: 'red',
+                'background-color': 'blue'
+            },
+            baseStyles: {
+                fontSize: '60px'
+            }
+        }
+    })
+</script>
+</html>
